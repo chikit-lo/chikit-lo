@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Hexo快速搭建部署</title>
+      <link href="2020/09/18/hexo-kuai-su-da-jian-bu-shu/"/>
+      <url>2020/09/18/hexo-kuai-su-da-jian-bu-shu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Hexo入魔"><a href="#Hexo入魔" class="headerlink" title="Hexo入魔"></a>Hexo入魔</h2><blockquote><p>最近两天都在折腾搭建免费的博客，偶然机会了解到Hexo这个开源静态博客框架，于是马上试了下，也遇到了不少坑，现在把遇到的问题记录下方便以后学习  </p></blockquote><h3 id="快速搭建"><a href="#快速搭建" class="headerlink" title="快速搭建"></a>快速搭建</h3><h4 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h4><p>首先Hexo是基于Node.js的，因此需要先安装Node的运行环境，可以直接到Node官网下载对应版本：<br><a href="https://nodejs.org/zh-cn/download/">下载Node.js</a><br>安装完之后就可以使用npm工具安装各种模块了<br>安装hexo可以使用全局安装或局部安装，我使用的是局部安装(因为强迫症)，我在桌面新建了一个名为hexo的目录，然后在控制台输入指令：</p><pre><code class="shell">cd Desktop/hexonpm init -ynpm i hexo</code></pre><p>这样就在hexo目录下把所需要的依赖下载好了，之后，初始化hexo，由于我采用的是局部安装，没有配置环境变量需要打指令的全路径，接着在控制台输入：</p><pre><code class="shell">./node_modules/hexo/bin/hexo init ./myblog</code></pre><p><strong>hexo init [博客目录路径]**这个指令初始化了一个博客目录，会在当前目录</strong>/Users/jacklo/Desktop/hexo/<strong>下建一个</strong>myblog**的文件夹，这个名字可以随便起，接着继续在命令行输入：</p><pre><code class="shell">cd myblognpm i</code></pre><p>这时就会从GitHub下载相关依赖，我尝试了几次都下载失败，在下载主题的时候一动不动，遇到这种情况，可以使用梯子，或者直接在hexo的仓库中<a href="https://github.com/hexojs/hexo.git">下载</a>  </p><hr><h4 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h4><p>我当时在控制台下载不了，最后时从仓库中下载下来的，把下载后的文件解压放进博客的目录即可，目录下的结构长这样：<br>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes<br><strong>_config.yml</strong>：网站的配置信息<br><strong>package.json</strong>：应用的信息<br><strong>scaffolds</strong>：模版的文件夹<br><strong>source</strong>：资源的文件夹<br><strong>themes</strong>：主题的文件夹<br>其中，themes目录里面是空的，我从GitHub上下载了<a href="https://github.com/blinkfox/hexo-theme-matery.git">matery</a>的主题，可以说里面该有的都有了，非常华丽<br>同样地也需要把下载后的文件解压后放到<strong>theme</strong>目录下，然后需要把<strong>_config.yml</strong>文件中<em>theme</em>的代码片段修改一下，下载到的主题目录文件名是<strong>hexo-theme-matery</strong>，<em>theme</em>后面的内容和文件名一致，但非常奇怪，我用原来的文件名启动服务的时候提示layout不存在，折腾了很久找不到原因，后来我把文件名改为<em>matery</em>后就解决了  </p><pre><code class="yml">theme: matery</code></pre><hr><h4 id="启动本地服务"><a href="#启动本地服务" class="headerlink" title="启动本地服务"></a>启动本地服务</h4><p>至此准备阶段的工作就可以了，那么让我们把博客在本地的服务器上运行下效果吧~接着在控制台输入：</p><pre><code class="shell">cd myblog./node_modules/hexo/bin/hexo g # 生成静态文件./node_modules/hexo/bin/hexo s # 启动服务器</code></pre><p>控制台打印没有报错信息就可以了</p><pre><code class="shell">INFO  Validating configINFO  Start processingINFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</code></pre><p>浏览器访问<em><a href="http://localhost:4000/">http://localhost:4000</a></em>查看效果  </p><hr><h3 id="将项目部署到GitHub或者Gitee"><a href="#将项目部署到GitHub或者Gitee" class="headerlink" title="将项目部署到GitHub或者Gitee"></a>将项目部署到GitHub或者Gitee</h3><blockquote><p>由于国内访问GitHub不是特别的方便，特别是访问<em>github.io</em>时往往显示不可达，因此可以把项目同步放到Gitee  </p></blockquote><h4 id="GitHub仓库准备"><a href="#GitHub仓库准备" class="headerlink" title="GitHub仓库准备"></a>GitHub仓库准备</h4><p>首先<a href="https://github.com/">GitHub</a>需要新建一个仓库，仓库名称需要改为：**[GitHub用户名称].github.io**  </p><hr><h4 id="Gitee仓库准备"><a href="#Gitee仓库准备" class="headerlink" title="Gitee仓库准备"></a>Gitee仓库准备</h4><p>同样地，<a href="https://gitee.com/">Gitee</a>也需要新建一个仓库，仓库名称与GitHub就不一样了：直接使用自己的<strong>Gitee用户名</strong>就可以了  </p><hr><h4 id="修改主配置文件-config-yml"><a href="#修改主配置文件-config-yml" class="headerlink" title="修改主配置文件_config.yml"></a>修改主配置文件_config.yml</h4><p>在<strong>_config.yml</strong>中修改一下配置：</p><pre><code class="yml">deploy:  type: git  repo: [https://github.com/[GitHub用户名称]/[GitHub用户名称].github.io,https://gitee.com/[Gitee用户名]/[Gitee用户名].git] #需要替换两个仓库的用户名  branch: master</code></pre><hr><h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>最后在命令行执行遗下指令：</p><pre><code class="shell">./node_modules/hexo/bin/hexo clean # 清除缓存文件 (db.json) 和已生成的静态文件 (public)./node_modules/hexo/bin/hexo g -d # 生成静态文件并部署网站</code></pre><p>在Gitee提交变更以后再次浏览网页效果时会没有发生变化，这时候可以在仓库的Service-&gt;Gitee Pages中点击Update手动Deploy<br>在GitHub里面似乎不需要这样，每次提交完网页都会自动更新，但是如果自己的pc没有配置hosts文件的话往往会访问不到，这时候可以尝试以下操作：<br>首先把<strong>github.io</strong>的ip查出来，<a href="https://www.ipaddress.com/">戳我</a>，查到ip后可以设置本机的hosts文件，以mac系统为例：</p><pre><code class="shell">sodu vi /etc/hosts185.199.110.153 *.github.io # 把这一句加到hosts文件中</code></pre><p>之后pc端就能正常访问了，但其他用户就不一定了，所以对国内的用户还不是特别的友好，于是才有了这个发布到两个仓库的尝试</p><hr><h3 id="其他的配置"><a href="#其他的配置" class="headerlink" title="其他的配置"></a>其他的配置</h3><p>主题里面的配置项有很多，可以根据自己的喜好去定制不同的参数项，matery的文档已经比较详细了，可以参考<a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">官方的中文说明</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 踩坑 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="2020/09/17/hello-world/"/>
       <url>2020/09/17/hello-world/</url>

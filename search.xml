@@ -35,7 +35,7 @@
       <link href="2020/09/17/hello-world/"/>
       <url>2020/09/17/hello-world/</url>
       
-        <content type="html"><![CDATA[<h2 id="今天属于我的blog终于开张了～"><a href="#今天属于我的blog终于开张了～" class="headerlink" title="今天属于我的blog终于开张了～"></a>今天属于我的blog终于开张了～</h2><blockquote><p>很久之前我就憧憬某一天可以有自己的网站，不是注册就可以写网志的那种，而是需要自己动手组建的站点  </p></blockquote><p>折腾了一晚上，静态页面可以放到GitHub上，但访问有可能会有问题，pc端需要配置一下hosts：</p><pre><code class="shell">185.199.111.153 *.github.io</code></pre><p>Hexo是个不错的开源博客框架，可以用markdown，正好适合练习，但页面的华丽程度就比较需要投入时间去改了，我偷懒clone了其他大神的插件  </p><p>我还在阿里云里面申请了一个免费使用一年的域名，之后还打算把一些应用部署到云服务器上面，最近在学前端的技术，并没有比服务器端的简单，而且很多如果不用一段时间就会忘光  </p><p>那从JavaScript开始，开始web全栈的旅程吧</p><pre><code class="javascript">var a = setInterval(function () &#123;    $(&#39;a.detail-right.btn-clicktrue&#39;)[0].click()&#125;,1000);</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="今天属于我的blog终于开张了～"><a href="#今天属于我的blog终于开张了～" class="headerlink" title="今天属于我的blog终于开张了～"></a>今天属于我的blog终于开张了～</h2><blockquote><p>很久之前我就憧憬某一天可以有自己的网站，不是注册就可以写网志的那种，而是需要自己动手组建的站点  </p></blockquote><p>折腾了一晚上，静态页面可以放到GitHub上，但访问有可能会有问题，pc端需要配置一下hosts</p><p>Hexo是个不错的开源博客框架，可以用markdown，正好适合练习，但页面的华丽程度就比较需要投入时间去改了，我偷懒clone了其他大神的插件  </p><p>我还在阿里云里面申请了一个免费使用一年的域名，之后还打算把一些应用部署到云服务器上面，最近在学前端的技术，并没有比服务器端的简单，而且很多如果不用一段时间就会忘光  </p><p>那从JavaScript开始，开始web全栈的旅程吧</p>]]></content>
       
       
       <categories>

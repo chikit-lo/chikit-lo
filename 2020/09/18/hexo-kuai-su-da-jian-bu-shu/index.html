@@ -537,7 +537,7 @@ INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</code></p
 ./node_modules/hexo/bin/hexo g -d # 生成静态文件并部署网站</code></pre>
 <p>在Gitee提交变更以后再次浏览网页效果时会没有发生变化，这时候可以在仓库的Service-&gt;Gitee Pages中点击Update手动Deploy<br>在GitHub里面似乎不需要这样，每次提交完网页都会自动更新，但是如果自己的pc没有配置hosts文件的话往往会访问不到，这时候可以尝试以下操作：<br>首先把<strong>github.io</strong>的ip查出来，<a target="_blank" rel="noopener" href="https://www.ipaddress.com/">戳我</a>，查到ip后可以设置本机的hosts文件，以mac系统为例：</p>
 <pre><code class="shell">sodu vi /etc/hosts
-185.199.110.153 *.github.io # 把这一句加到hosts文件中</code></pre>
+185.199.110.153 chikit-lo.github.io # 把自己的地址加到hosts文件中</code></pre>
 <p>之后pc端就能正常访问了，但其他用户就不一定了，所以对国内的用户还不是特别的友好，于是才有了这个发布到两个仓库的尝试</p>
 <hr>
 <h3 id="其他的配置"><a href="#其他的配置" class="headerlink" title="其他的配置"></a>其他的配置</h3><p>主题里面的配置项有很多，可以根据自己的喜好去定制不同的参数项，matery的文档已经比较详细了，可以参考<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">官方的中文说明</a></p>
@@ -739,10 +739,10 @@ INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</code></p
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>

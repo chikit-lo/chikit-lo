@@ -182,7 +182,7 @@
 			
 			    <i class="fa-fw far fa-image"></i>
 			
-			Gallery
+			相册
 		</a>
           
         </li>
@@ -517,7 +517,10 @@
                 <h2 id="Hexo入魔"><a href="#Hexo入魔" class="headerlink" title="Hexo入魔"></a>Hexo入魔</h2><blockquote>
 <p>最近两天都在折腾搭建免费的博客，偶然机会了解到Hexo这个开源静态博客框架，于是马上试了下，也遇到了不少坑，现在把遇到的问题记录下方便以后学习  </p>
 </blockquote>
-<h3 id="快速搭建"><a href="#快速搭建" class="headerlink" title="快速搭建"></a>快速搭建</h3><h4 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h4><p>首先Hexo是基于Node.js的，因此需要先安装Node的运行环境，可以直接到Node官网下载对应版本：<br><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">下载Node.js</a><br>安装完之后就可以使用npm工具安装各种模块了<br>安装hexo可以使用全局安装或局部安装，我使用的是局部安装(因为强迫症)，我在桌面新建了一个名为hexo的目录，然后在控制台输入指令：</p>
+<h3 id="快速搭建"><a href="#快速搭建" class="headerlink" title="快速搭建"></a>快速搭建</h3><h4 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h4><p>首先Hexo是基于Node.js的，因此需要先安装Node的运行环境，可以直接到Node官网下载对应版本：<br><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">下载Node.js</a><br>安装完之后就可以使用npm工具安装各种模块了，这里我们可以配置一下淘宝镜像，加快下载速度：</p>
+<pre><code class="shell">npm config registry https://registry.npm.taobao.org/ # 配置淘宝仓库
+npm config get registry # 查看仓库是否配置成功</code></pre>
+<p>安装hexo可以使用全局安装或局部安装，我使用的是局部安装(因为强迫症)，我在桌面新建了一个名为hexo的目录，然后在控制台输入指令：</p>
 <pre><code class="shell">cd Desktop/hexo
 npm init -y
 npm i hexo</code></pre>

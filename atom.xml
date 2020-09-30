@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>某科学的超掉头发</title>
+  
+  <subtitle>我变强了，也变秃了</subtitle>
+  <link href="https://chikit-lo.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://chikit-lo.github.io/"/>
+  <updated>2020-09-30T06:21:50.836Z</updated>
+  <id>https://chikit-lo.github.io/</id>
+  
+  <author>
+    <name>瑞士军刀废</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MacOS配置SSH免密登陆GitHub</title>
+    <link href="https://chikit-lo.github.io/2020/09/30/sshgithub/"/>
+    <id>https://chikit-lo.github.io/2020/09/30/sshgithub/</id>
+    <published>2020-09-30T06:10:26.000Z</published>
+    <updated>2020-09-30T06:21:50.836Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;使用SSH协议可以连接远程服务器和服务并向它们验证。利用SSH密钥可以连接GitHub，而无需在每次访问时提供用户名或密码。在部署VuePress到GitHub的时候踩坑了，报错信息是没有权限或者没有找到仓库，但仓库是建了的，所以是没有登陆权限，需</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="踩坑" scheme="https://chikit-lo.github.io/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+    <category term="ssh" scheme="https://chikit-lo.github.io/tags/ssh/"/>
+    
+    <category term="github" scheme="https://chikit-lo.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VuePress快速搭建部署</title>
+    <link href="https://chikit-lo.github.io/2020/09/29/VuePress101/"/>
+    <id>https://chikit-lo.github.io/2020/09/29/VuePress101/</id>
+    <published>2020-09-29T07:06:56.000Z</published>
+    <updated>2020-09-30T06:11:04.013Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;VuePress入魔&quot;&gt;&lt;a href=&quot;#VuePress入魔&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="踩坑" scheme="https://chikit-lo.github.io/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+    <category term="VuePress" scheme="https://chikit-lo.github.io/tags/VuePress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo快速搭建部署</title>
+    <link href="https://chikit-lo.github.io/2020/09/18/Hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2/"/>
+    <id>https://chikit-lo.github.io/2020/09/18/Hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2/</id>
+    <published>2020-09-18T04:52:22.000Z</published>
+    <updated>2020-09-29T09:58:48.892Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Hexo入魔&quot;&gt;&lt;a href=&quot;#Hexo入魔&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Hexo" scheme="https://chikit-lo.github.io/tags/Hexo/"/>
+    
+    <category term="踩坑" scheme="https://chikit-lo.github.io/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://chikit-lo.github.io/2020/09/17/Hello-World/"/>
+    <id>https://chikit-lo.github.io/2020/09/17/Hello-World/</id>
+    <published>2020-09-16T17:39:50.000Z</published>
+    <updated>2020-09-18T15:55:36.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;今天属于我的blog终于开张了～&quot;&gt;&lt;a href=&quot;#今天属于我的blog终于开张了～&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="日记" scheme="https://chikit-lo.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+    <category term="吐槽" scheme="https://chikit-lo.github.io/tags/%E5%90%90%E6%A7%BD/"/>
+    
+  </entry>
+  
+</feed>

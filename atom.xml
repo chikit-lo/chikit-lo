@@ -6,7 +6,7 @@
   <link href="https://chikit-lo.github.io/atom.xml" rel="self"/>
   
   <link href="https://chikit-lo.github.io/"/>
-  <updated>2020-10-21T03:39:09.976Z</updated>
+  <updated>2020-10-21T07:36:11.089Z</updated>
   <id>https://chikit-lo.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker备忘录</title>
+    <link href="https://chikit-lo.github.io/2020/10/21/docker101/"/>
+    <id>https://chikit-lo.github.io/2020/10/21/docker101/</id>
+    <published>2020-10-21T07:25:00.000Z</published>
+    <updated>2020-10-21T07:36:11.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在微服务的开发练习时候往往会用到虚拟机，而Docker则方便我们管理各种镜像资源，虚拟机中的虚拟机  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;Docker的安装&quot;&gt;&lt;a href=&quot;#Docker的安装&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Docker" scheme="https://chikit-lo.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VMware配置虚拟机静态ip地址</title>
+    <link href="https://chikit-lo.github.io/2020/10/21/vmware-config/"/>
+    <id>https://chikit-lo.github.io/2020/10/21/vmware-config/</id>
+    <published>2020-10-21T07:00:00.000Z</published>
+    <updated>2020-10-21T07:43:50.896Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在使用虚拟机的时候，为了方便其他局域网内的机器访问里面的资源，我会把虚拟机设置固定ip，VMware我安装在Windows系统中，以Windows系统为例，完成相关配置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="VMware" scheme="https://chikit-lo.github.io/tags/VMware/"/>
+    
+  </entry>
   
   <entry>
     <title>Oracle批量事务更新大量数据</title>

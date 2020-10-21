@@ -6,7 +6,7 @@
   <link href="https://chikit-lo.github.io/atom.xml" rel="self"/>
   
   <link href="https://chikit-lo.github.io/"/>
-  <updated>2020-09-30T06:21:50.836Z</updated>
+  <updated>2020-10-21T03:39:09.976Z</updated>
   <id>https://chikit-lo.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Oracle批量事务更新大量数据</title>
+    <link href="https://chikit-lo.github.io/2020/10/21/oracle-batch-commit/"/>
+    <id>https://chikit-lo.github.io/2020/10/21/oracle-batch-commit/</id>
+    <published>2020-10-21T03:16:48.000Z</published>
+    <updated>2020-10-21T03:39:09.976Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在工作中曾经遇到过需要更新生产环境中一张千万级别的表数据，直接全表用update效率太低了，写了一个脚本来实现分批数据更新，更新了千万级别数据大概需要10分钟&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Oracle" scheme="https://chikit-lo.github.io/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql踩坑记</title>
+    <link href="https://chikit-lo.github.io/2020/10/21/mysql-troubles/"/>
+    <id>https://chikit-lo.github.io/2020/10/21/mysql-troubles/</id>
+    <published>2020-10-20T16:48:33.000Z</published>
+    <updated>2020-10-21T03:38:48.064Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;MySql问题在使用的过程中问题多多，试到过是版本问题的，也有的原因是配置没配好，反正就很折腾，我把遇到的问题及解决方案汇总如下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="踩坑" scheme="https://chikit-lo.github.io/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+    <category term="MySql" scheme="https://chikit-lo.github.io/tags/MySql/"/>
+    
+  </entry>
   
   <entry>
     <title>MacOS配置SSH免密登陆GitHub</title>

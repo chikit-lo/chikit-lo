@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>Oracle批量事务更新大量数据</title>
+      <link href="2020/10/21/oracle-batch-commit/"/>
+      <url>2020/10/21/oracle-batch-commit/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>在工作中曾经遇到过需要更新生产环境中一张千万级别的表数据，直接全表用update效率太低了，写了一个脚本来实现分批数据更新，更新了千万级别数据大概需要10分钟</p></blockquote><pre><code class="sql">--打开日志信息输出到控制台SET SERVEROUTPUT ON;DECLARE    --声明数组，存放主键id    TYPE t_id IS TABLE OF CVSDB.BVS_UNITY_MSG.ID%TYPE;    v_id t_id;    --取数游标    CURSOR cur IS    SELECT ID FROM CVSDB.BVS_UNITY_MSG WHERE MSG_TYPE = &#39;3&#39; AND SEND_STATUS = &#39;0&#39;;    --更新数量    v_cnt INTEGER := 0;BEGIN    OPEN cur;    --循环取数    LOOP    EXIT WHEN cur%NOTFOUND;    --每次批量检索结果：10000条记录    FETCH cur BULK COLLET INTO v_id LIMIT 10000;    --批量发送更新语句    FORALL i IN 1...v_id.COUNT    UPDATE CVSDB.BVS_UNITY_MSG SET SEND_STATUS = &#39;1&#39;, UPDATOR = &#39;SCRIPT_BATCH_UPD&#39;, UPDATE_TIME = CURRENT_TIMESTAMP WHERE ID = v_id(i);    COMMIT;    v_cnt := v_cnt + v_id.COUNT;    END LOOP;    CLOSE cur;    DBMS_OUTPUT.PUT_LINE(&#39;UPDATE DATA SUCCESSFULLY: &#39;||v_cnt);    --异常回滚    EXCEPTION    WHEN OTHER THEN    DBMS_OUTPUT.PUT_LINE(&#39;UPDATE DATA ERROR, ROLLBACK...&#39;);    ROLLBACK;END;/</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Oracle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySql踩坑记</title>
+      <link href="2020/10/21/mysql-troubles/"/>
+      <url>2020/10/21/mysql-troubles/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>MySql问题在使用的过程中问题多多，试到过是版本问题的，也有的原因是配置没配好，反正就很折腾，我把遇到的问题及解决方案汇总如下</p></blockquote><h4 id="1045-Access-denied-for-user-‘root’-…"><a href="#1045-Access-denied-for-user-‘root’-…" class="headerlink" title="1045 - Access denied for user ‘root’@…"></a>1045 - Access denied for user ‘root’@…</h4><p>虚拟机上用docker安装的镜像，另一台主机连接该服务时报了权限问题，解决方法是赋权，开发时我给所有ip授权了，根据实际需要可以替换<code>%</code>为具体的ip：</p><pre><code class="shell">docker exec -it mysql /bin/bashmysql -u root -pmysql&gt; grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39;;mysql&gt; flush privileges;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 踩坑 </tag>
+            
+            <tag> MySql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MacOS配置SSH免密登陆GitHub</title>
       <link href="2020/09/30/sshgithub/"/>
       <url>2020/09/30/sshgithub/</url>

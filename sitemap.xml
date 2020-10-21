@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chikit-lo.github.io/2020/10/21/oracle-batch-commit/</loc>
+    
+    <lastmod>2020-10-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chikit-lo.github.io/2020/10/21/mysql-troubles/</loc>
+    
+    <lastmod>2020-10-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chikit-lo.github.io/2020/09/30/sshgithub/</loc>
     
     <lastmod>2020-09-30</lastmod>
@@ -81,7 +95,7 @@
 
   <url>
     <loc>https://chikit-lo.github.io/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -89,42 +103,56 @@
   
   <url>
     <loc>https://chikit-lo.github.io/tags/%E5%90%90%E6%A7%BD/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chikit-lo.github.io/tags/Hexo/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chikit-lo.github.io/tags/%E8%B8%A9%E5%9D%91/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chikit-lo.github.io/tags/VuePress/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chikit-lo.github.io/tags/MySql/</loc>
+    <lastmod>2020-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chikit-lo.github.io/tags/Oracle/</loc>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chikit-lo.github.io/tags/ssh/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chikit-lo.github.io/tags/github/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -133,14 +161,14 @@
   
   <url>
     <loc>https://chikit-lo.github.io/categories/%E6%97%A5%E8%AE%B0/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2020-09-30</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

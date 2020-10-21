@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="code-5XXvkHFqU0" />
     <meta name="baidu-site-verification" content="code-cqwYenbNft" />
-    <meta name="keywords" content="ssh,github,部署,瑞士军刀废,废同学,教程,技术">
+    <meta name="keywords" content="MySql踩坑,MySql问题,MySql报错">
     <meta name="description" content="人生就是不断变秃的过程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MacOS配置SSH免密登陆GitHub | 某科学的超掉头发</title>
+    <title>MySql踩坑记 | 某科学的超掉头发</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601456970448&di=5daf0fa8b1168f3bd4056b2a21318595&imgtype=0&src=http%3A%2F%2Fpic.baike.soso.com%2Fugc%2Fbaikepic2%2F29732%2F20150730104347-452797466.jpg%2F0')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603261574623&di=ce07b52770e1ac8081850c036de5dfe4&imgtype=0&src=http%3A%2F%2Fpic.downcc.com%2Fupload%2F2015-3%2F20153179412.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MacOS配置SSH免密登陆GitHub</h1>
+                    <h1 class="description center-align post-title">MySql踩坑记</h1>
                 </div>
             </div>
         </div>
@@ -459,12 +459,8 @@
                                 <span class="chip bg-color">踩坑</span>
                             </a>
                         
-                            <a href="/tags/ssh/">
-                                <span class="chip bg-color">ssh</span>
-                            </a>
-                        
-                            <a href="/tags/github/">
-                                <span class="chip bg-color">github</span>
+                            <a href="/tags/MySql/">
+                                <span class="chip bg-color">MySql</span>
                             </a>
                         
                     </div>
@@ -488,7 +484,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-30
+                    2020-10-21
                 </div>
                 
 
@@ -497,14 +493,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    511
+                    154
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -520,49 +516,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>使用SSH协议可以连接远程服务器和服务并向它们验证。利用SSH密钥可以连接GitHub，而无需在每次访问时提供用户名或密码。在部署VuePress到GitHub的时候踩坑了，报错信息是没有权限或者没有找到仓库，但仓库是建了的，所以是没有登陆权限，需要配置一下，这里我以MacOS为例</p>
+<p>MySql问题在使用的过程中问题多多，试到过是版本问题的，也有的原因是配置没配好，反正就很折腾，我把遇到的问题及解决方案汇总如下</p>
 </blockquote>
-<p>报错信息如下：</p>
-<pre><code class="shell">git@github.com: Permission denied (publickey).
-fatal: Could not read from remote repository.
-
-Please make sure you have the correct access rights
-and the repository exists.</code></pre>
-<h2 id="1-先检查一下电脑是否已经有SSH-keys"><a href="#1-先检查一下电脑是否已经有SSH-keys" class="headerlink" title="1.先检查一下电脑是否已经有SSH keys"></a>1.先检查一下电脑是否已经有SSH keys</h2><p>在终端里面输入以下命令：</p>
-<pre><code class="shell">ls -al ~/.ssh</code></pre>
-<p>看看打印的结果是否包含有<code>.pub</code>后缀的文件，若没有，则进入第2步，若已存在，则跳到第3步</p>
-<h2 id="2-生成密钥"><a href="#2-生成密钥" class="headerlink" title="2.生成密钥"></a>2.生成密钥</h2><h3 id="2-1-ssh-keygen"><a href="#2-1-ssh-keygen" class="headerlink" title="2.1 ssh-keygen"></a>2.1 ssh-keygen</h3><p>在终端输入以下命令，最后的参数是关联GitHub的邮箱：</p>
-<pre><code class="shell">ssh-keygen -t rsa -b 4096 -C &quot;&lt;GitHub绑定的邮箱&gt;&quot;</code></pre>
-<p>然后一路回车：</p>
-<pre><code class="shell">Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/jacklo/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /Users/jacklo/.ssh/id_rsa.
-Your public key has been saved in /Users/jacklo/.ssh/id_rsa.pub.
-The key fingerprint is:
-SHA256:Jf9jJTx7sopMzA2qT0FKIdLm/MEjxAPKFDhfxKUsLS0 312321720@qq.com
-The key&#39;s randomart image is:
-+---[RSA 4096]----+
-|+*ooo..          |
-|*.*=oo           |
-|.OE+* . . .      |
-|  ==+o   + .     |
-|   o.o. S . + .  |
-|    .  = o . =   |
-|      o + . * .  |
-|     o o . . =   |
-|    ... o ...    |
-+----[SHA256]-----+
-</code></pre>
-<h3 id="2-2-将SSH-key添加至ssh-agent"><a href="#2-2-将SSH-key添加至ssh-agent" class="headerlink" title="2.2 将SSH key添加至ssh-agent"></a>2.2 将SSH key添加至ssh-agent</h3><pre><code class="shell">eval $(ssh-agent -s) # 在后台启动 ssh 代理</code></pre>
-<h3 id="2-3-把密钥添加到ssh-agent的高速缓存中"><a href="#2-3-把密钥添加到ssh-agent的高速缓存中" class="headerlink" title="2.3 把密钥添加到ssh-agent的高速缓存中"></a>2.3 把密钥添加到ssh-agent的高速缓存中</h3><pre><code class="shell">ssh-add -K ~/.ssh/id_rsa</code></pre>
-<h2 id="3-将公钥保存到GitHub"><a href="#3-将公钥保存到GitHub" class="headerlink" title="3.将公钥保存到GitHub"></a>3.将公钥保存到GitHub</h2><p>打开id_rsa.pub文件，将内容复制以下：</p>
-<pre><code class="shell">view ~/.ssh/id_rsa.pub</code></pre>
-<p>登陆GitHub-&gt;Settings-&gt;SSH and GPG keys-&gt;New SSH key，<br><code>Title</code>改一下，然后把控制台复制的内容粘贴到<code>Key</code>中，最后<code>Add SSH key</code></p>
-<h2 id="4-测试连接"><a href="#4-测试连接" class="headerlink" title="4.测试连接"></a>4.测试连接</h2><pre><code class="shell">ssh -T git@github.com
-Hi chikit-lo! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
-<p>终端打印类似信息即可，对于Windows或其他系统做法可能稍微有点差异，附上官方的解决方案：<a target="_blank" rel="noopener" href="https://docs.github.com/cn/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">使用 SSH 连接到 GitHub</a></p>
+<h4 id="1045-Access-denied-for-user-‘root’-…"><a href="#1045-Access-denied-for-user-‘root’-…" class="headerlink" title="1045 - Access denied for user ‘root’@…"></a>1045 - Access denied for user ‘root’@…</h4><p>虚拟机上用docker安装的镜像，另一台主机连接该服务时报了权限问题，解决方法是赋权，开发时我给所有ip授权了，根据实际需要可以替换<code>%</code>为具体的ip：</p>
+<pre><code class="shell">docker exec -it mysql /bin/bash
+mysql -u root -p
+mysql&gt; grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39;;
+mysql&gt; flush privileges;</code></pre>
 
             </div>
             <hr/>
@@ -588,7 +548,7 @@ Hi chikit-lo! You&#39;ve successfully authenticated, but GitHub does not provide
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chikit-lo.github.io/2020/09/30/sshgithub/">https://chikit-lo.github.io/2020/09/30/sshgithub/</a>
+                    <a href="https://chikit-lo.github.io/2020/10/21/mysql-troubles/">https://chikit-lo.github.io/2020/10/21/mysql-troubles/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -630,12 +590,8 @@ Hi chikit-lo! You&#39;ve successfully authenticated, but GitHub does not provide
                                     <span class="chip bg-color">踩坑</span>
                                 </a>
                             
-                                <a href="/tags/ssh/">
-                                    <span class="chip bg-color">ssh</span>
-                                </a>
-                            
-                                <a href="/tags/github/">
-                                    <span class="chip bg-color">github</span>
+                                <a href="/tags/MySql/">
+                                    <span class="chip bg-color">MySql</span>
                                 </a>
                             
                         </div>
@@ -1070,18 +1026,18 @@ Hi chikit-lo! You&#39;ve successfully authenticated, but GitHub does not provide
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/21/mysql-troubles/">
+                <a href="/2020/10/21/oracle-batch-commit/">
                     <div class="card-image">
                         
-                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603261574623&di=ce07b52770e1ac8081850c036de5dfe4&imgtype=0&src=http%3A%2F%2Fpic.downcc.com%2Fupload%2F2015-3%2F20153179412.png" class="responsive-img" alt="MySql踩坑记">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603261625511&di=5fdf81142397a4179f468ab1d6f612ed&imgtype=0&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2719548413%2C1855661372%26fm%3D214%26gp%3D0.jpg" class="responsive-img" alt="Oracle批量事务更新大量数据">
                         
-                        <span class="card-title">MySql踩坑记</span>
+                        <span class="card-title">Oracle批量事务更新大量数据</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySql SOS
+                            Oracle script
                         
                     </div>
                     <div class="publish-info">
@@ -1103,12 +1059,8 @@ Hi chikit-lo! You&#39;ve successfully authenticated, but GitHub does not provide
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%B8%A9%E5%9D%91/">
-                        <span class="chip bg-color">踩坑</span>
-                    </a>
-                    
-                    <a href="/tags/MySql/">
-                        <span class="chip bg-color">MySql</span>
+                    <a href="/tags/Oracle/">
+                        <span class="chip bg-color">Oracle</span>
                     </a>
                     
                 </div>
@@ -1122,23 +1074,23 @@ Hi chikit-lo! You&#39;ve successfully authenticated, but GitHub does not provide
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/29/VuePress101/">
+                <a href="/2020/09/30/sshgithub/">
                     <div class="card-image">
                         
-                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601373529215&di=45f728d5c1ef058e9360b7978e2290b5&imgtype=0&src=http%3A%2F%2Fimg1.sycdn.imooc.com%2F5def9ece00016af611420940.jpg" class="responsive-img" alt="VuePress快速搭建部署">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601456970448&di=5daf0fa8b1168f3bd4056b2a21318595&imgtype=0&src=http%3A%2F%2Fpic.baike.soso.com%2Fugc%2Fbaikepic2%2F29732%2F20150730104347-452797466.jpg%2F0" class="responsive-img" alt="MacOS配置SSH免密登陆GitHub">
                         
-                        <span class="card-title">VuePress快速搭建部署</span>
+                        <span class="card-title">MacOS配置SSH免密登陆GitHub</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Head First VuePress
+                            Head First SSH GitHub
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-30
                             </span>
                         <span class="publish-author">
                             
@@ -1159,8 +1111,12 @@ Hi chikit-lo! You&#39;ve successfully authenticated, but GitHub does not provide
                         <span class="chip bg-color">踩坑</span>
                     </a>
                     
-                    <a href="/tags/VuePress/">
-                        <span class="chip bg-color">VuePress</span>
+                    <a href="/tags/ssh/">
+                        <span class="chip bg-color">ssh</span>
+                    </a>
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="https://chikit-lo.github.io/atom.xml" rel="self"/>
   
   <link href="https://chikit-lo.github.io/"/>
-  <updated>2020-10-21T07:36:11.089Z</updated>
+  <updated>2020-10-30T17:39:39.605Z</updated>
   <id>https://chikit-lo.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker配置Elasticsearch</title>
+    <link href="https://chikit-lo.github.io/2020/10/31/elasticsearch101/"/>
+    <id>https://chikit-lo.github.io/2020/10/31/elasticsearch101/</id>
+    <published>2020-10-30T17:12:55.000Z</published>
+    <updated>2020-10-30T17:39:39.605Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在SpringBoot的后端开发练习中要用到搜索引擎Elasticsearch，由于之前的项目都在Docker中配置镜像，这次也不例外  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;Docker中安装Elasticsearch&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://chikit-lo.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Docker" scheme="https://chikit-lo.github.io/tags/Docker/"/>
+    
+    <category term="Elasticsearch" scheme="https://chikit-lo.github.io/tags/Elasticsearch/"/>
+    
+    <category term="SpringBoot" scheme="https://chikit-lo.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Docker备忘录</title>
     <link href="https://chikit-lo.github.io/2020/10/21/docker101/"/>
     <id>https://chikit-lo.github.io/2020/10/21/docker101/</id>
     <published>2020-10-21T07:25:00.000Z</published>
-    <updated>2020-10-21T07:36:11.089Z</updated>
+    <updated>2020-10-22T04:49:24.464Z</updated>
     
     
       
@@ -49,7 +81,7 @@
     <link href="https://chikit-lo.github.io/2020/10/21/vmware-config/"/>
     <id>https://chikit-lo.github.io/2020/10/21/vmware-config/</id>
     <published>2020-10-21T07:00:00.000Z</published>
-    <updated>2020-10-21T07:43:50.896Z</updated>
+    <updated>2020-10-30T17:15:16.797Z</updated>
     
     
       

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="code-5XXvkHFqU0" />
     <meta name="baidu-site-verification" content="code-cqwYenbNft" />
-    <meta name="keywords" content="Docker">
+    <meta name="keywords" content="Docker,Elasticsearch,SpringBoot">
     <meta name="description" content="人生就是不断变秃的过程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker备忘录 | 某科学的超掉头发</title>
+    <title>Docker配置Elasticsearch | 某科学的超掉头发</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603275261968&di=f28ea866411982a8077289fd1a7ba85f&imgtype=0&src=http%3A%2F%2Fwww.mobiletrain.org%2Fd%2Ffile%2Fabout%2Finfo%2F9e00de7c9520dc6e6753a4e3fc79f304.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604088342282&di=6c8b5ba2b0986903db761447f1d96fe5&imgtype=0&src=http%3A%2F%2Fstatic001.infoq.cn%2Fresource%2Fimage%2F48%2F06%2F48fb5f5d37a9efd331763e97c5368306.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker备忘录</h1>
+                    <h1 class="description center-align post-title">Docker配置Elasticsearch</h1>
                 </div>
             </div>
         </div>
@@ -459,6 +459,14 @@
                                 <span class="chip bg-color">Docker</span>
                             </a>
                         
+                            <a href="/tags/Elasticsearch/">
+                                <span class="chip bg-color">Elasticsearch</span>
+                            </a>
+                        
+                            <a href="/tags/SpringBoot/">
+                                <span class="chip bg-color">SpringBoot</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -480,7 +488,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-21
+                    2020-10-31
                 </div>
                 
 
@@ -489,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    724
+                    314
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -512,48 +520,31 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>在微服务的开发练习时候往往会用到虚拟机，而Docker则方便我们管理各种镜像资源，虚拟机中的虚拟机  </p>
+<p>在SpringBoot的后端开发练习中要用到搜索引擎Elasticsearch，由于之前的项目都在Docker中配置镜像，这次也不例外  </p>
 </blockquote>
-<h3 id="Docker的安装"><a href="#Docker的安装" class="headerlink" title="Docker的安装"></a>Docker的安装</h3><p>以CentOS7为例：</p>
-<pre><code class="shell">yum install docker # 安装Docker
-systemctl start docker # 启动Docker
-systemctl enable docker # 将Docker服务设为开机启动</code></pre>
-<h3 id="基操"><a href="#基操" class="headerlink" title="基操"></a>基操</h3><h4 id="1-镜像操作"><a href="#1-镜像操作" class="headerlink" title="1.镜像操作"></a>1.镜像操作</h4><pre><code class="shell">docker serach 镜像名 # 检索镜像
-docker pull 镜像名[:tag] # 拉取镜像，[:tag]可选，tag代表软件版本，默认为latest
-docker images # 查看所以本地镜像
-docker rmi IMAGE_ID # 根据image id删除本地镜像</code></pre>
-<h4 id="2-容器操作"><a href="#2-容器操作" class="headerlink" title="2.容器操作"></a>2.容器操作</h4><pre><code class="shell">docker run --name CONTAINER_NAME -d IMAGE_NAME -p 8080:8080 # 运行容器，IMAGE_NAME：指定镜像模板；--name：自定义容器名CONTAINER_NAME；-d：后台运行；-p：主机端口:容器内部端口
-docker ps # 查看运行中的容器
-docker ps -a # 查看所有容器
-docker start CONTAINER_NAME/CONTAINER_ID # 启动容器
-docker stop CONTAINER_NAME/CONTAINER_ID # 停止容器
-docker rm CONTAINER_NAME/CONTAINER_ID # 删除容器
-docker logs CONTAINER_NAME/CONTAINER_ID # 查看容器日志
-docker exec -it CONTAINER_NAME/CONTAINER_ID /bin/bash # 进入到容器</code></pre>
-<p>mysql的容器在运行的时候需要指定密码，以我安装的5.7版本为例：</p>
-<pre><code class="shell">docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7</code></pre>
-<p>若容器需要开机自动启动或取消自动启动，则可以使用如下指令：</p>
-<pre><code class="shell">docker update mysql --restart=always # 开机自动启动
-docker update mysql --restart=no # 取消开机自动启动</code></pre>
-<h3 id="使用国内镜像加速下载速度"><a href="#使用国内镜像加速下载速度" class="headerlink" title="使用国内镜像加速下载速度"></a>使用国内镜像加速下载速度</h3><p>修改<code>/etc/docker/daemon.json</code>文件：</p>
-<pre><code class="shell">vi /etc/docker/daemon.json
-# 将下面内容添加到这个文件中
-&#123;
-  &quot;registry-mirrors&quot;: [&quot;https://hccwwfjl.mirror.aliyuncs.com&quot;]
+<h3 id="Docker中安装Elasticsearch"><a href="#Docker中安装Elasticsearch" class="headerlink" title="Docker中安装Elasticsearch"></a>Docker中安装Elasticsearch</h3><h4 id="1-拉区镜像"><a href="#1-拉区镜像" class="headerlink" title="1.拉区镜像"></a>1.拉区镜像</h4><pre><code class="shell">docker pull elasticsearch</code></pre>
+<h4 id="2-创建容器并运行"><a href="#2-创建容器并运行" class="headerlink" title="2.创建容器并运行"></a>2.创建容器并运行</h4><pre><code class="shell">docker run -d docker.io/elasticsearch --name myes -p 9200:9200 -e &quot;discovery.type=single-node&quot; -e ES_JAVA_OPTS=&quot;-Xms256m -Xmx256m&quot; --restart=always</code></pre>
+<h4 id="3-修改elasticsearch-yml配置文件"><a href="#3-修改elasticsearch-yml配置文件" class="headerlink" title="3.修改elasticsearch.yml配置文件"></a>3.修改elasticsearch.yml配置文件</h4><pre><code class="shell">docker exec -it myes /bin/bash
+vi config/elasticsearch.yml</code></pre>
+<p>添加以下两行对跨域访问的支持：</p>
+<pre><code class="shell">http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;</code></pre>
+<h4 id="4-重启容器"><a href="#4-重启容器" class="headerlink" title="4.重启容器"></a>4.重启容器</h4><pre><code class="shell">docker restart myes</code></pre>
+<h4 id="5-浏览器访问虚拟机9200端口地址有json字符串返回成功即可"><a href="#5-浏览器访问虚拟机9200端口地址有json字符串返回成功即可" class="headerlink" title="5.浏览器访问虚拟机9200端口地址有json字符串返回成功即可"></a>5.浏览器访问虚拟机9200端口地址有json字符串返回成功即可</h4><h3 id="SpringBoot添加Elasticsearch依赖并配置"><a href="#SpringBoot添加Elasticsearch依赖并配置" class="headerlink" title="SpringBoot添加Elasticsearch依赖并配置"></a>SpringBoot添加Elasticsearch依赖并配置</h3><h4 id="1-pom-xml"><a href="#1-pom-xml" class="headerlink" title="1.pom.xml"></a>1.pom.xml</h4><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-data-elasticsearch&lt;/artifactId&gt;
+    &lt;version&gt;4.0.5.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<h4 id="2-配置Bean"><a href="#2-配置Bean" class="headerlink" title="2.配置Bean"></a>2.配置Bean</h4><p>高版本的Elasticsearch已经不需要在application.yml中配置，原先的spring.data.elasticsearch.cluster-nodes已经废弃，以前需要用到9300端口，现在也不需要了，用回9200即可，但需要一个配置类支持：</p>
+<pre><code class="java">@Bean
+public RestHighLevelClient elasticsearchClient() &#123;
+    ClientConfiguration clientConfiguration = ClientConfiguration.builder().connectedTo(&quot;192.168.0.118:9200&quot;).build();
+
+    return RestClients.create(clientConfiguration).rest();
 &#125;</code></pre>
-<h3 id="与VMware端口映射"><a href="#与VMware端口映射" class="headerlink" title="与VMware端口映射"></a>与VMware端口映射</h3><p>由于我是使用两台计算机进行学习和练习，其中一台安装了虚拟机的宿主机需要配置防火墙的入站规则以便另外局域网内的机器访问：  </p>
-<p>这台宿主机是Windows10系统，在系统设置中，找到<code>网络和Internet</code>，点击<code>Windows防火墙</code>，找到<code>高级设置</code>，里面的<code>入站规则</code>中新建一个规则： </p>
-<ul>
-<li><code>规则类型</code>选择<code>自定义</code>，下一步，</li>
-<li><code>程序</code>选择<code>所有程序</code>，下一步，</li>
-<li><code>协议和端口</code>保持默认任何，下一步，</li>
-<li><code>作用域</code>的本地IP地址中我添加了局域网内的主机ip，下一步，</li>
-<li><code>操作</code>选择<code>允许连接</code>，下一步，</li>
-<li><code>配置文件</code>默认选中所有，下一步，<code>名称</code>取一下即可，添加完成后启动规则即可  </li>
-</ul>
-<p>打开VMware的<code>虚拟机网络编辑器</code>，点击<code>VMnet8</code>的网卡，点击<code>NAT设置</code>，<code>端口转发</code>中添加一些应用程序的访问规则，例如MySql的：  </p>
-<p>主机端口：3306，类型：TCP，虚拟机IP地址：192.168.142.180:3306  </p>
-<p>这样，在局域网的主机就能通过连接宿主机的ip来访问到虚拟机里面docker容器的数据库了，注意的是连接<code>宿主机</code>的ip，并非<code>虚拟机</code>的</p>
+<h4 id="3-ElasticsearchDao"><a href="#3-ElasticsearchDao" class="headerlink" title="3.ElasticsearchDao"></a>3.ElasticsearchDao</h4><p>之后的增删改查操作沿用Spring Data Jpa的即可：</p>
+<pre><code class="java">public interface ElasticsearchDao extends ElasticsearchRepository&lt;Object, String&gt; &#123;
+&#125;</code></pre>
 
             </div>
             <hr/>
@@ -579,7 +570,7 @@ docker update mysql --restart=no # 取消开机自动启动</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chikit-lo.github.io/2020/10/21/docker101/">https://chikit-lo.github.io/2020/10/21/docker101/</a>
+                    <a href="https://chikit-lo.github.io/2020/10/31/elasticsearch101/">https://chikit-lo.github.io/2020/10/31/elasticsearch101/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -619,6 +610,14 @@ docker update mysql --restart=no # 取消开机自动启动</code></pre>
                             
                                 <a href="/tags/Docker/">
                                     <span class="chip bg-color">Docker</span>
+                                </a>
+                            
+                                <a href="/tags/Elasticsearch/">
+                                    <span class="chip bg-color">Elasticsearch</span>
+                                </a>
+                            
+                                <a href="/tags/SpringBoot/">
+                                    <span class="chip bg-color">SpringBoot</span>
                                 </a>
                             
                         </div>
@@ -1049,9 +1048,10 @@ docker update mysql --restart=no # 取消开机自动启动</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/10/31/elasticsearch101/">
                     <div class="card-image">
@@ -1068,9 +1068,9 @@ docker update mysql --restart=no # 取消开机自动启动</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1083,6 +1083,7 @@ docker update mysql --restart=no # 取消开机自动启动</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1109,18 +1110,18 @@ docker update mysql --restart=no # 取消开机自动启动</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/21/vmware-config/">
+                <a href="/2020/10/21/docker101/">
                     <div class="card-image">
                         
-                        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1330048653,738179345&fm=26&gp=0.jpg" class="responsive-img" alt="VMware配置虚拟机静态ip地址">
+                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603275261968&di=f28ea866411982a8077289fd1a7ba85f&imgtype=0&src=http%3A%2F%2Fwww.mobiletrain.org%2Fd%2Ffile%2Fabout%2Finfo%2F9e00de7c9520dc6e6753a4e3fc79f304.jpg" class="responsive-img" alt="Docker备忘录">
                         
-                        <span class="card-title">VMware配置虚拟机静态ip地址</span>
+                        <span class="card-title">Docker备忘录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            VMware network config
+                            Head First Docker
                         
                     </div>
                     <div class="publish-info">
@@ -1142,8 +1143,8 @@ docker update mysql --restart=no # 取消开机自动启动</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/VMware/">
-                        <span class="chip bg-color">VMware</span>
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
                     </a>
                     
                 </div>

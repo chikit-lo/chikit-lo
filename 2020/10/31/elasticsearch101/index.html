@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    314
+                    535
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -530,7 +530,27 @@ vi config/elasticsearch.yml</code></pre>
 <pre><code class="shell">http.cors.enabled: true
 http.cors.allow-origin: &quot;*&quot;</code></pre>
 <h4 id="4-重启容器"><a href="#4-重启容器" class="headerlink" title="4.重启容器"></a>4.重启容器</h4><pre><code class="shell">docker restart myes</code></pre>
-<h4 id="5-浏览器访问虚拟机9200端口地址有json字符串返回成功即可"><a href="#5-浏览器访问虚拟机9200端口地址有json字符串返回成功即可" class="headerlink" title="5.浏览器访问虚拟机9200端口地址有json字符串返回成功即可"></a>5.浏览器访问虚拟机9200端口地址有json字符串返回成功即可</h4><h3 id="SpringBoot添加Elasticsearch依赖并配置"><a href="#SpringBoot添加Elasticsearch依赖并配置" class="headerlink" title="SpringBoot添加Elasticsearch依赖并配置"></a>SpringBoot添加Elasticsearch依赖并配置</h3><h4 id="1-pom-xml"><a href="#1-pom-xml" class="headerlink" title="1.pom.xml"></a>1.pom.xml</h4><pre><code class="xml">&lt;dependency&gt;
+<h4 id="5-浏览器访问虚拟机9200端口地址有json字符串返回成功即可"><a href="#5-浏览器访问虚拟机9200端口地址有json字符串返回成功即可" class="headerlink" title="5.浏览器访问虚拟机9200端口地址有json字符串返回成功即可"></a>5.浏览器访问虚拟机9200端口地址有json字符串返回成功即可</h4><pre><code class="json">&#123;
+  &quot;name&quot; : &quot;518c0f242750&quot;,
+  &quot;cluster_name&quot; : &quot;docker-cluster&quot;,
+  &quot;cluster_uuid&quot; : &quot;jJci8N6gSJe4lqzgiNVNTw&quot;,
+  &quot;version&quot; : &#123;
+    &quot;number&quot; : &quot;7.8.0&quot;,
+    &quot;build_flavor&quot; : &quot;default&quot;,
+    &quot;build_type&quot; : &quot;docker&quot;,
+    &quot;build_hash&quot; : &quot;757314695644ea9a1dc2fecd26d1a43856725e65&quot;,
+    &quot;build_date&quot; : &quot;2020-06-14T19:35:50.234439Z&quot;,
+    &quot;build_snapshot&quot; : false,
+    &quot;lucene_version&quot; : &quot;8.5.1&quot;,
+    &quot;minimum_wire_compatibility_version&quot; : &quot;6.8.0&quot;,
+    &quot;minimum_index_compatibility_version&quot; : &quot;6.0.0-beta1&quot;
+  &#125;,
+  &quot;tagline&quot; : &quot;You Know, for Search&quot;
+&#125;</code></pre>
+<h4 id="6-添加ik中文分词器插件"><a href="#6-添加ik中文分词器插件" class="headerlink" title="6.添加ik中文分词器插件"></a>6.添加ik中文分词器插件</h4><p>在GitHub中下载不高于Elasticsearch版本的分词器：<br><a target="_blank" rel="noopener" href="https://github.com/medcl/elasticsearch-analysis-ik/releases">elasticsearch-analysis-ik</a><br>解压后将文件传输到虚拟机，以我为例，我下载的是7.8.0版本，并将解压后的文件夹上传至虚拟机根目录，确保已经启动了elasticseach容器，执行以下指令将插件复制到容器内部：</p>
+<pre><code class="shell">docker cp ./elasticsearch-analysis-ik-7.8.0/ myes:/usr/share/elasticsearch/plugins</code></pre>
+<p>然后重启elasticsearch容器即可</p>
+<h3 id="SpringBoot添加Elasticsearch依赖并配置"><a href="#SpringBoot添加Elasticsearch依赖并配置" class="headerlink" title="SpringBoot添加Elasticsearch依赖并配置"></a>SpringBoot添加Elasticsearch依赖并配置</h3><h4 id="1-pom-xml"><a href="#1-pom-xml" class="headerlink" title="1.pom.xml"></a>1.pom.xml</h4><pre><code class="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;
     &lt;artifactId&gt;spring-data-elasticsearch&lt;/artifactId&gt;
     &lt;version&gt;4.0.5.RELEASE&lt;/version&gt;
